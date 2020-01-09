@@ -29,9 +29,11 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/estate-dashboard-sidebar.css" />
     <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <title data-title>Dashboard</title>
     <script src="../js/general/onSession.js"></script>
   </head>
@@ -276,7 +278,9 @@
                 </div>
 
                 <!--CHART-->
-
+                <div class="bg-white shadow p-3 mb-5 bg-white rounded">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
               </div>
 
 
@@ -383,6 +387,7 @@
 
     <!--Import third party cdn-->
     <script src="../js/general/third_party_cdn.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script0 src="../js/general/placeholder.js"></script0>
     <!--Import the base url for the project-->
     <script src="../js/general/routes.js"></script>
@@ -399,5 +404,6 @@
         $(".toast").toast("show");
       });
     </script>
+    <script src="../js/general/visitor-chart.js"></script>
   </body>
 </html>

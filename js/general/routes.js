@@ -5,7 +5,8 @@ Import Note: The base_url.js hold every every third party base url origin and ap
 */
 //const api_origin = 'http://127.0.0.1:8000/';
 // const api_origin = 'http://52.40.191.249/';
-// const api_origin = 'https://gateappapi.herokuapp.com/';
+// const api_origin_test = 'https://gateappapi.herokuapp.com/';
+//const api_origin = "https://api.gateguard.co/";
 
 class Routes {
   get api_origin() {

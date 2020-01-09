@@ -60,32 +60,33 @@ const fetchResidentsData = async () => {
       }
     });
     let data = await response.json();
-    const { residents } = data;
+    const { residents , image_link, image_round_format} = data;
     document.getElementById('totalResidents').innerHTML = residents.length;
     let count = 0;
     for (let i=0; i<3; i++){
       numR.push(Math.floor(Math.random() * residents.length));
     }
-
-    residents.map(resident => {
-      const { name, phone, image, access } = resident[0];
-      count++;
+    console.log(residents);
+    residents.map((resident, count) => {
+      const { name, phone, image, access, home } = resident;
 // console.log(name)
       residentsData.push({
         count,
         name,
         phone,
         image,
-        access
+        access,
+        home
       });
       
-    });
+    }); 
     
     //Residents summary
     
     residentsData.forEach(resident=>{
       numR.forEach(num=>{
         if (resident.count ===num){
+          console.log(resident)
     residentsSummary.innerHTML += `
     <div
     class="d-flex flex-row justify-content-between align-items-center pl-4 pr-4 mb-3"
@@ -94,7 +95,7 @@ const fetchResidentsData = async () => {
       <img
         width="60px"
         height="60px"
-        src="${resident.image}"
+        src="${image_link}${image_round_format}${resident.image}"
         alt="You"
         style="margin-right: 10px; border-radius: 50%;"
       />
@@ -104,7 +105,7 @@ const fetchResidentsData = async () => {
       >
         <p style="font-size: 16px; color: #141821;">${resident.name}</p>
         <p style="font-size: 14px; margin-top: -1.5em; color: #858997;">
-          BLOCK D, Flat 3
+        ${resident.home.house_block ? resident.home.house_block : 'Address not set' }
         </p>
       </div>
     </div>
@@ -190,7 +191,7 @@ const fetchGuardsData = async () => {
       }
     });
     let data = await response.json();
-    const { gatemen } = data;
+    const { gatemen , image_link, image_round_format}= data;
     document.getElementById('totalGuards').innerHTML = gatemen.length;
     let count = 0;
     for (let i=1; i<=3; i++){
@@ -221,7 +222,7 @@ const fetchGuardsData = async () => {
       <img
         width="60px"
         height="60px"
-        src="${guard.image}"
+        src="${image_link}${image_round_format}${guard.image}"
         alt="You"
         style="margin-right: 10px; border-radius: 50%;"
       />
